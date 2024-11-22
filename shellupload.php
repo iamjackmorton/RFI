@@ -1,5 +1,4 @@
 <?php
-
 // Function to fetch the content of a webpage and save it to a new PHP file
 function fetchAndSaveWebpageContent() {
     // URL of the webpage you want to fetch (replace this with your desired URL)
