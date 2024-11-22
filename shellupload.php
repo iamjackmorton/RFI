@@ -33,16 +33,3 @@ function fetchAndSaveWebpageContent() {
 fetchAndSaveWebpageContent();
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch and Save Webpage Content</title>
-</head>
-<body>
-    <h2>Webpage Download Status</h2>
-    <p>The content of the webpage has been successfully fetched and saved as <strong>abcd.php</strong>.</p>
-</body>
-</html>
