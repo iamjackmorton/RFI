@@ -1,2 +1,2 @@
-<!ENITTY % all "<!ENTITY xxe SYSTEM '%file;'>">
+<!ENTITY % all "<!ENTITY xxe SYSTEM '%file;'>">
 %all;
